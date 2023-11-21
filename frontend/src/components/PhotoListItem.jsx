@@ -6,14 +6,13 @@ const PhotoListItem = (props) => {
   const photo = props.PhotoData;
 
   return (
-    <div className="photo-list__item" key={photo.id}>
-      <PhotoFavButton
-        alert={props.alert}
-        setAlert={props.setAlert}
-        favPhotos={props.favPhotos}
-        id={props.id}
-        toggleFavourites={props.toggleFavourites}
-      />
+    <div className="photo-list__item" key={photo.id} onClick={props.onClick}>      <PhotoFavButton
+      alert={props.alert}
+      setAlert={props.setAlert}
+      favPhotos={props.favPhotos}
+      id={props.id}
+      toggleFavourites={props.toggleFavourites}
+    />
       <div>
         <img className="photo-list__image" src={photo.urls.full} />
       </div>
