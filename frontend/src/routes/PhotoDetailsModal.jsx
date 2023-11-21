@@ -5,33 +5,34 @@ import PhotoList from "components/PhotoList";
 import similarPhotos from "../mocks/photos.js";
 import PhotoFavButton from "../components/PhotoFavButton";
 import "../styles/PhotoFavButton.scss";
+import useApplicationData from "../hooks/useApplicationData";
 
 const PhotoDetailsModal = ({
-  setModalVisible,
   selectedPhotoId,
   alert,
   favPhotos,
   setAlert,
-  setSelectedPhotoId,
+  setSelectedPhoto,
   toggleFavourites,
   openPhotoModal,
+  onClosePhotoDetailsModal,
 }) => {
-  const closeModal = () => {
-    setModalVisible(false); // Close the modal
-  };
+  //invoke the custom hook
+  //const { actions } = useApplicationData();
+
   const photo = similarPhotos.find((photo) => photo.id === selectedPhotoId);
+
   return (
     <div className="photo-details-modal">
       <button
         className="photo-details-modal__close-button"
-        onClick={closeModal}
+        onClick={onClosePhotoDetailsModal}
       >
         <img src={closeSymbol} alt="close symbol" />
       </button>
 
       <div className="photo-details-modal__container">
         {/* Display fav icon on modal full size photo */}
-
         <div className="photo-details-modal__photo-fav-button">
           <PhotoFavButton
             alert={alert}
@@ -41,6 +42,7 @@ const PhotoDetailsModal = ({
             id={selectedPhotoId}
           />
         </div>
+
         {/* Display full size photo */}
         <img src={photo.urls.full} className="photo-details-modal__image" />
 
@@ -53,11 +55,9 @@ const PhotoDetailsModal = ({
           </div>
         </div>
       </div>
-
       <p className="photo-details-modal__header photo-details-modal__line">
         Similar Photos
       </p>
-
       {/* Display similar photos */}
       <div>
         <PhotoList
@@ -66,12 +66,12 @@ const PhotoDetailsModal = ({
           setAlert={setAlert}
           key={photo.id}
           id={photo.id}
-          photos={similarPhotos}
           PhotoData={photo}
           favPhotos={favPhotos}
-          setSelectedPhotoId={setSelectedPhotoId}
+          setSelectedPhoto={setSelectedPhoto}
           toggleFavourites={toggleFavourites}
           openPhotoModal={openPhotoModal}
+          onClosePhotoDetailsModal={onClosePhotoDetailsModal}
         />
       </div>
     </div>

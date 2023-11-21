@@ -4,9 +4,6 @@ import TopicList from "./TopicList";
 import FavBadge from "./FavBadge";
 
 const TopNavigation = (props) => {
-  const clickHandler = () => {
-    props.setAlert(props.alert === false ? true : false);
-  };
 
   return (
     <div className="top-nav-bar">
