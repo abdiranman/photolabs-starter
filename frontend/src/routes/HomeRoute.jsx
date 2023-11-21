@@ -3,6 +3,8 @@ import "../styles/HomeRoute.scss";
 import TopNavigationBar from "../components/TopNavigationBar";
 import PhotoList from "../components/PhotoList";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
+import photos from "../mocks/photos";
+
 const HomeRoute = () => {
   const [alert, setAlert] = useState(false);
   const [favPhotos, setfavPhotos] = useState([]);
@@ -40,11 +42,20 @@ const HomeRoute = () => {
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
         openPhotoModal={openPhotoModal}
+        selectedPhotoId={selectedPhotoId}
+        setSelectedPhotoId={setSelectedPhotoId}
+        photos={photos}
       />
       {modalVisible && selectedPhotoId !== null && (
         <PhotoDetailsModal
           selectedPhotoId={selectedPhotoId}
           setModalVisible={setModalVisible}
+          setSelectedPhotoId={setSelectedPhotoId}
+          photos={photos}
+          alert={alert}
+          setAlert={setAlert}
+          favPhotos={favPhotos}
+          toggleFavourites={toggleFavourites}
         />
       )}
     </div>
