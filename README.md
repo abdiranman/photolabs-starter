@@ -72,7 +72,5 @@ Engage with a personalized experience by clicking on a specific topic from the n
 
 ## Thank You for Being a Part of the PhotoLabs Experience!
 
-Experience the magic of photography in a whole new light. Explore, engage, and immerse yourself in the captivating world of PhotoLabs!
 
----
 
