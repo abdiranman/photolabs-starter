@@ -3,13 +3,11 @@ import "../styles/HomeRoute.scss";
 import TopNavigationBar from "../components/TopNavigationBar";
 import PhotoList from "../components/PhotoList";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
-
 const HomeRoute = () => {
   const [alert, setAlert] = useState(false);
   const [favPhotos, setfavPhotos] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedPhotoId, setSelectedPhotoId] = useState(null);
-
   const toggleFavourites = (id) => {
     if (favPhotos.includes(id)) {
       setfavPhotos((prev) => {
@@ -21,15 +19,9 @@ const HomeRoute = () => {
       });
     }
   };
-
   const openPhotoModal = (id) => {
     setSelectedPhotoId(id);
     setModalVisible(true);
-  };
-
-  const closeModal = () => {
-    setSelectedPhotoId(null);
-    setModalVisible(false);
   };
 
   return (
@@ -58,5 +50,4 @@ const HomeRoute = () => {
     </div>
   );
 };
-
 export default HomeRoute;
