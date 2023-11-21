@@ -119,10 +119,9 @@ const useApplicationData = () => {
       toggleFavourites,
       onClosePhotoDetailsModal,
       setSelectedPhoto,
+      fetchPhotosByTopic,
       photoData: state.photoData,
       topicData: state.topicData,
-      topicPhotos: state.topicPhotos,
-      fetchPhotosByTopic,
     },
   };
 }
