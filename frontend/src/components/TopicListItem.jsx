@@ -5,18 +5,15 @@ const sampleDataForTopicListItem = {
   slug: "topic-1",
   label: "Nature",
 };
-
 const TopicListItem = (props) => {
   const topics = props.TopicData;
 
   const topicItem = topics.map((topic) => (
-    <li key={topic.id}>
-      <div className="topic-list__item">
-        <span>{topic.title}</span>
-      </div>
-    </li>
+    <div className="topic-list__item" key={topic.id}>
+      <span>{topic.title}</span>
+    </div>
   ));
-  return <ul>{topicItem}</ul>;
+  return <div>{topicItem}</div>;
 };
 
 export default TopicListItem;
