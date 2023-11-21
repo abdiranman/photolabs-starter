@@ -1,10 +1,8 @@
 import React from "react";
-
 import "../styles/PhotoDetailsModal.scss";
 import closeSymbol from "../assets/closeSymbol.svg";
 import PhotoList from "components/PhotoList";
 import similarPhotos from "../mocks/photos.js";
-
 const PhotoDetailsModal = ({
   setModalVisible,
   selectedPhotoId,
@@ -17,7 +15,6 @@ const PhotoDetailsModal = ({
   const closeModal = () => {
     setModalVisible(false); // Close the modal
   };
-
   const photo = similarPhotos.find((photo) => photo.id === selectedPhotoId);
   console.log(similarPhotos);
   return (
@@ -28,7 +25,6 @@ const PhotoDetailsModal = ({
       >
         <img src={closeSymbol} alt="close symbol" />
       </button>
-
       <div className="photo-details-modal__image-container">
         {/* Display full size photo */}
         <img src={photo.urls.full} className="photo-details-modal__image" />
@@ -36,7 +32,7 @@ const PhotoDetailsModal = ({
       <p className="photo-details-modal__header">Similar Photos</p>
 
       {/* Display similar photos */}
-      <div className="photo-details-modal__similar-photos">
+      <div>
         <PhotoList
           className="photo-details-modal__images"
           alert={alert}
